@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir='rtl'>
       <link rel="icon" href="../../public/icon.svg" />
-      <meta property="og:image" content="https://zajil-express-mu.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.c162e9a7.png&w=828&q=75" />
+      <meta property="og:image" content="https://www.almrsal.com/wp-content/uploads/2014/01/Aramex-Tranco.jpg" />
       <body className={tajawal.className}>
 
       {/* <NumTrack.Provider value={{NTrack,SetNtrack}}> */}
