@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir='rtl'>
       <link rel="icon" href="../../public/icon.svg" />
-      <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ70Jh0sMQHkDi5ZJbkGKLj9_xLFe6QRxiGOjF7_fMBv6Et51J0B_vGK65nLWz0RCR-8rs&usqp=CAU" />
+      <meta property="og:image" content="https://wamda-prod.s3-eu-west-1.amazonaws.com/content/1b71e3a950284be.jpg" />
       <body className={tajawal.className}>
 
       {/* <NumTrack.Provider value={{NTrack,SetNtrack}}> */}
