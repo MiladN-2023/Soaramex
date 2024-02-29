@@ -29,7 +29,7 @@ if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.valu
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    var length =`مدونة ارامكس %0A   نوع الخدمة : ${typeRequest.current.value} %0A من  : ${fromcity.current.value} %0A  الى : ${tocity.current.value}  %0A %0A ${track}`
+    var length =`مدونة ارامكس %0A   نوع الخدمة : ${typeRequest.current.value} %0A من  : ${fromcity.current.value} %0A  الى : ${tocity.current.value} %0A قيمة السداد:${mony.current.value} %0A %0A ${track}`
 
 
     fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
