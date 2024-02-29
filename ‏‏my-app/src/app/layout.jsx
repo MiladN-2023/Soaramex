@@ -5,7 +5,7 @@ import  './globals.css'
 const tajawal = Tajawal({ subsets: ['latin'],weight:['300','500','700'] })
 
 export const metadata = {
-  title: 'زاجل للحلول اللوجستية',
+  title: 'ارامكس | الرئيسية  ',
   description: 'اكتشف كيف يمكننا مساعدتك على تنمية أعمالك وزيادة أرباحك من خلال حلولنا الاحترافية وشبكتنا اللوجستية العالمية',
   
 }
