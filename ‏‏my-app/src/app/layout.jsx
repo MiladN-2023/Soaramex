@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir='rtl'>
       <link rel="icon" href="../../public/icon.svg" />
-      <meta property="og:image" content="https://media.licdn.com/dms/image/C4D22AQFLswQ_ncK8sA/feedshare-shrink_800/0/1675246356756?e=2147483647&v=beta&t=r9MnZ9POh1KxFkcdYFlsDBLdDRoIYYvLDOplQtjDIEw" />
+      <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ70Jh0sMQHkDi5ZJbkGKLj9_xLFe6QRxiGOjF7_fMBv6Et51J0B_vGK65nLWz0RCR-8rs&usqp=CAU" />
       <body className={tajawal.className}>
 
       {/* <NumTrack.Provider value={{NTrack,SetNtrack}}> */}
