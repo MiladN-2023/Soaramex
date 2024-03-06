@@ -38,7 +38,7 @@ const Pay=()=>{
         }
       }
   return (
-   <div className={styles.main}>
+    <div className={styles.main}>
     <div className={styles.contect} dir='rtl'>
     
     <div>

